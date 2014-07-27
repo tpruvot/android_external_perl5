@@ -1,6 +1,6 @@
 perl_src := $(call my-dir)
 
-WANT_MICROPERL = 0
+WANT_MICROPERL = 1
 
 # Perl code is not clean !
 PERL_WARNINGS = \
@@ -45,7 +45,7 @@ include $(BUILD_EXECUTABLE)
 
 ###############################################################################
 
-ifeq (WANT_MICROPERL,1)
+ifeq ($(WANT_MICROPERL),1)
 
 LOCAL_PATH := $(perl_src)
 include $(CLEAR_VARS)
@@ -53,13 +53,14 @@ include $(CLEAR_VARS)
 # microperl objects (from Makefile.micro, without u prefix)
 perl_uo := av caretx deb doio doop dump \
 	globals gv hv mro\
-	mg perlmain op reentr \
+	mg op reentr \
 	pad perl perlio perly pp \
 	pp_ctl pp_hot pp_sys pp_pack pp_sort \
 	regcomp regexec run \
 	scope sv taint toke \
 	numeric locale mathoms \
-	universal utf8 util perlapi keywords
+	universal utf8 util perlapi keywords \
+	miniperlmain
 perl_uo := $(addsuffix .c, $(perl_uo))
 
 LOCAL_MODULE := microperl
@@ -68,11 +69,10 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_EXECUTABLES)
 
 LOCAL_CFLAGS := $(PERL_DEFINES) $(PERL_WARNINGS) \
   -DPERL_CORE -DPERL_MICRO -DSTANDARD_C \
-  -DPERL_USE_SAFE_PUTENV -DNO_MATHOMS
+  -DPERL_USE_SAFE_PUTENV -DNO_MATHOMS \
+  -include $(perl_src)/android/android.h
 
 LOCAL_SRC_FILES := $(perl_uo)
-
-# ??? LOCAL_SRC_FILES += $(perl_src)/DynaLoader.o
 
 LOCAL_C_INCLUDES := \
   $(perl_src)/android/micro \
