@@ -13,6 +13,8 @@ PERL_INCLUDES = \
   $(perl_src)/android
 
 PERL_DEFINES = \
+  -DUSE_CROSS_COMPILE -DPERL_TARGETARCH=\"$(TARGET_ARCH)\"
+
 
 ###############################################################################
 

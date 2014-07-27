@@ -9,9 +9,8 @@
 
 /* Package name      : perl5
  * Source directory  : /vertex/cm11/external/perl5
- * Configuration time: Sun Jul 27 07:12:08 CEST 2014
- * Configured by     : root
- * Target system     : linux epsytour 2.6.36-1-mepis64-smp #1 smp thu mar 31 15:10:33 cdt 2011 x86_64 gnulinux 
+ * Configuration time: Mon Jul 28 03:41:51 CEST 2014
+ * Configured by     : tpruvot
  */
 
 #ifndef _config_h_
@@ -20,7 +19,7 @@
 /* LOC_SED:
  *	This symbol holds the complete pathname to the sed program.
  */
-#define LOC_SED 	"/bin/sed"	/**/
+#define LOC_SED 	"/system/xbin/sed"	/**/
 
 /* HAS_ALARM:
  *	This symbol, if defined, indicates that the alarm routine is
@@ -248,7 +247,7 @@
  *	This symbol, if defined, indicates that the mbstowcs routine is
  *	available to convert a multibyte string into a wide character string.
  */
-#define	HAS_MBSTOWCS		/**/
+/*#define	HAS_MBSTOWCS		/ **/
 
 /* HAS_MBTOWC:
  *	This symbol, if defined, indicates that the mbtowc routine is available
@@ -610,7 +609,7 @@
  *	This symbol, if defined, indicates that the wcstombs routine is
  *	available to convert wide character strings to multibyte strings.
  */
-#define HAS_WCSTOMBS	/**/
+/*#define HAS_WCSTOMBS	/ **/
 
 /* HAS_WCTOMB:
  *	This symbol, if defined, indicates that the wctomb routine is available
@@ -905,7 +904,7 @@
  *	where library files may be held under a private library, for
  *	instance.
  */
-#define ARCHNAME "arm-eabi"		/**/
+#define ARCHNAME "linux-androideabi"		/**/
 
 /* BIN:
  *	This symbol holds the path of the bin directory where the package will
@@ -1471,7 +1470,7 @@
 #define HAS_UNAME		/**/
 /*#define HAS_PHOSTNAME	/ **/
 #ifdef HAS_PHOSTNAME
-#define PHOSTNAME "/system/bin/getprop net.hostname"	/* How to get the host name */
+#define PHOSTNAME "/bin/hostname"	/* How to get the host name */
 #endif
 
 /* HAS_GETHOSTBYADDR_R:
@@ -3172,8 +3171,8 @@
  *	This symbol contains the ~name expanded version of SITEARCH, to be used
  *	in programs that are not prepared to deal with ~ expansion at run-time.
  */
-#define SITEARCH ".../../lib/perl5/site_perl/5.21.3/linux-androideabi"		/**/
-#define SITEARCH_EXP ".../../lib/perl5/site_perl/5.21.3/linux-androideabi"		/**/
+#define SITEARCH "/data/local/lib/perl5/site_perl/5.21.3/linux-androideabi"		/**/
+#define SITEARCH_EXP "/data/local/lib/perl5/site_perl/5.21.3/linux-androideabi"		/**/
 
 /* SITELIB:
  *	This symbol contains the name of the private library for this package.
@@ -3195,9 +3194,9 @@
  *	removed.  The elements in inc_version_list (inc_version_list.U) can
  *	be tacked onto this variable to generate a list of directories to search.
  */
-#define SITELIB ".../../lib/perl5/site_perl/5.21.3"		/**/
-#define SITELIB_EXP ".../../lib/perl5/site_perl/5.21.3"		/**/
-#define SITELIB_STEM ".../../lib/perl5/site_perl"		/**/
+#define SITELIB "/data/local/lib/perl5/site_perl/5.21.3"		/**/
+#define SITELIB_EXP "/data/local/lib/perl5/site_perl/5.21.3"		/**/
+#define SITELIB_STEM "/data/local/lib/perl5/site_perl"		/**/
 
 /* Size_t_size:
  *	This symbol holds the size of a Size_t in bytes.
@@ -4148,13 +4147,13 @@
  *	This symbol, if defined, indicates that the wcscmp routine is
  *	available to compare two wide character strings.
  */
-#define HAS_WCSCMP	/**/
+/*#define HAS_WCSCMP	/ **/
 
 /* HAS_WCSXFRM:
  *	This symbol, if defined, indicates that the wcsxfrm routine is
  *	available to tranform a wide character string for wcscmp().
  */
-#define HAS_WCSXFRM	/**/
+/*#define HAS_WCSXFRM	/ **/
 
 /* HAS_WRITEV:
  *	This symbol, if defined, indicates that the writev routine is
@@ -4254,7 +4253,7 @@
  *     This symbol, if defined, indicates to the C program that it should
  *     include <inttypes.h>.
  */
-#define   I_INTTYPES                /**/
+/*#define   I_INTTYPES                / **/
 
 /* I_LANGINFO:
  *	This symbol, if defined, indicates that <langinfo.h> exists and
@@ -4594,7 +4593,7 @@
  *	script to make sure (one hopes) that it runs with perl and not
  *	some shell.
  */
-#define STARTPERL "#!/usr/local/bin/perl5.21.3"		/**/
+#define STARTPERL "#!/system/bin/env perl"		/**/
 
 /* HAS_STDIO_STREAM_ARRAY:
  *	This symbol, if defined, tells that there is an array
