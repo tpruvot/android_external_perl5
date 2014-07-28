@@ -19,6 +19,9 @@ bug*.pl
 /Cross/run-*
 /Cross/to-*
 
+# Generated during Android repo builds
+.android.*.c
+
 # files produced by './configure.gnu' on a Linux machine
 /Makefile
 /Policy.sh
